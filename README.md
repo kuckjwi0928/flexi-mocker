@@ -15,7 +15,7 @@ $ make run
 
 ### Configuration
 - You can configure mocking by defining a `config.toml` file in the root of your project.
-- If you format $variable$ in the response, it will be replaced with a query parameter or path parameter.
+- If you format **$variable$** in the response, it will be replaced with a query parameter or path parameter.
 
 ```toml
 # server config
@@ -31,4 +31,4 @@ hello = "world"
 ```
 
 ### Note
-- The body of a POST request is not yet supported for $variable$ format. (TODO)
+- The body of a POST request is not yet supported for **$variable$** format. (TODO)
