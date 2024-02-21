@@ -1,0 +1,19 @@
+[server]
+port = 8080
+
+[[routes]]
+method = "GET"
+path = "/hello"
+sleep = 0
+[routes.response]
+hello = "world"
+
+[[routes]]
+method = "GET"
+path = "/hello/:path"
+sleep = 0
+[routes.response]
+hello = "world"
+path = "$path$"
+object = { key = "$path$"}
+array = ["$path$"]
