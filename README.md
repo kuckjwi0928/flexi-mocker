@@ -14,7 +14,7 @@ $ make run
 ```
 
 ### Configuration
-- You can configure mocking by defining a `config.toml` file in the root of your project.
+- You can configure mocking by defining a `config.toml` file.
 - If you format **$variable$** in the response, it will be replaced with a query parameter or path parameter.
 
 ```toml
