@@ -25,9 +25,10 @@ port = 8080 # port
 # route config
 [[routes]]
 method = "GET" # http method
-path = "/hello" # request path
+path = "/hello/:path-variable" # request path
 [routes.response] # response your want to return
 hello = "world"
+path = "$path-variable$"
 ```
 
 ### Note
