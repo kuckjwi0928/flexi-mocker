@@ -1,4 +1,4 @@
-package server
+package pkg
 
 import (
 	"fmt"
@@ -24,6 +24,13 @@ func (s *Server) setupRoutes() {
 	for _, route := range s.config.Routes {
 		r := route
 		s.app.Add([]string{r.Method}, r.Path, func(ctx fiber.Ctx) error {
+			defer func() {
+				if r := recover(); r != nil {
+					_ = ctx.JSON(fiber.Map{
+						"error": fmt.Sprintf("%v", r),
+					})
+				}
+			}()
 			return s.mockingHandler.handle(ctx, r)
 		})
 	}

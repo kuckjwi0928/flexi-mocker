@@ -1,19 +1,25 @@
+# configuration example
 [server]
 port = 8080
+
+[[routes]]
+method = "GET"
+path = "/hello/:world"
+sleep = 0
+[routes.response]
+hello = "$path.world$"
 
 [[routes]]
 method = "GET"
 path = "/hello"
 sleep = 0
 [routes.response]
-hello = "world"
+hello = "$query.text$"
+object = { key = "$query.text$" }
+array = ["$query.text$"]
 
 [[routes]]
-method = "GET"
-path = "/hello/:path"
-sleep = 0
+method = "POST"
+path = "/hello"
 [routes.response]
-hello = "world"
-path = "$path$"
-object = { key = "$path$"}
-array = ["$path$"]
+hello = "$body.text$"
