@@ -5,8 +5,6 @@ import (
 	"os"
 )
 
-const configFileName = "config.toml"
-
 // Config is a struct for the config.toml file
 type Config struct {
 	Server ServerConfig  `toml:"server"`
@@ -27,6 +25,10 @@ type RouteConfig struct {
 
 func NewConfig() *Config {
 	cfg := new(Config)
+	configFileName := "config.toml"
+	if configFilePath := os.Getenv("CONFIG_FILE_PATH"); configFilePath != "" {
+		configFileName = configFilePath
+	}
 	bytes, err := os.ReadFile(configFileName)
 	if err != nil {
 		panic(err)
