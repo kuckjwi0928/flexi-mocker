@@ -7,19 +7,19 @@ method = "GET"
 path = "/hello/:world"
 sleep = 0
 [routes.response]
-hello = "$path.world$"
+hello = "$path.world"
 
 [[routes]]
 method = "GET"
 path = "/hello"
 sleep = 0
 [routes.response]
-hello = "$query.text$"
-object = { key = "$query.text$" }
-array = ["$query.text$"]
+hello = "$query.text"
+object = { key = "$query.text" }
+array = ["$query.text"]
 
 [[routes]]
 method = "POST"
 path = "/hello"
 [routes.response]
-hello = "$header.Accept-Encoding$"
+hello = "$header.Accept-Encoding"
