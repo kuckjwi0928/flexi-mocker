@@ -39,9 +39,8 @@ func (m *MockBodyGenerator) generate(response any, parameter map[string]any) any
 }
 
 func (m *MockBodyGenerator) resolve(origin string, parameter map[string]any) any {
-	if origin[0] == bindingChar && origin[len(origin)-1] == bindingChar {
-		bindingKey := origin[1 : len(origin)-1]
-		if value, ok := parameter[bindingKey]; ok {
+	if origin[0] == bindingChar {
+		if value, ok := parameter[origin[1:]]; ok {
 			return value
 		}
 	}

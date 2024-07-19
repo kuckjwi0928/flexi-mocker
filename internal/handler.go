@@ -1,9 +1,10 @@
-package pkg
+package internal
 
 import (
 	"fmt"
 	"github.com/gofiber/fiber/v3"
 	"github.com/kuckjwi0928/flexi-mocker/configs"
+	"github.com/kuckjwi0928/flexi-mocker/pkg"
 	"net/http"
 )
 
@@ -15,12 +16,12 @@ const (
 )
 
 type MockingHandler struct {
-	bodyGenerator *MockBodyGenerator
+	bodyGenerator *pkg.MockBodyGenerator
 }
 
 func newMockingHandler() *MockingHandler {
 	return &MockingHandler{
-		bodyGenerator: NewMockBodyGenerator(),
+		bodyGenerator: pkg.NewMockBodyGenerator(),
 	}
 }
 
